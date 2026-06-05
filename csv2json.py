@@ -6,13 +6,15 @@ def csv_to_json(csv_file_path, json_file_path):
     data = []
     
     # Read the CSV file
-    with open(csv_file_path, 'r', encoding='utf-8') as csv_file:
-        # Create a CSV reader object
-        csv_reader = csv.DictReader(csv_file)
-        
+    with open(csv_file_path, newline='', encoding='utf-8') as csv_file:
+        # Create a CSV reader object that ignores spaces after delimiters
+        csv_reader = csv.DictReader(csv_file, skipinitialspace=True)
+
         # Convert each row to a dictionary and append to data list
         for row in csv_reader:
-            data.append(dict(row))
+            # Filter out invalid columns (e.g., from trailing commas)
+            clean_row = {k: v for k, v in row.items() if k is not None}
+            data.append(clean_row)
     
     # Write to JSON file
     with open(json_file_path, 'w', encoding='utf-8') as json_file:
@@ -30,3 +32,4 @@ except FileNotFoundError:
     print("Error: Input CSV file not found")
 except Exception as e:
     print(f"An error occurred: {str(e)}")
+
