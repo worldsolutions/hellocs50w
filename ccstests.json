@@ -1,23 +1,20 @@
 [
     {
         "Test Case": "1",
-        " Expected": " value1",
-        " Actual": " value1",
-        " Result": " Pass"
+        "Expected": "value1",
+        "Actual": "value1",
+        "Result": "Pass"
     },
     {
         "Test Case": "2",
-        " Expected": " value2",
-        " Actual": " value2",
-        " Result": " Pass",
-        "null": [
-            ""
-        ]
+        "Expected": "value2",
+        "Actual": "value2",
+        "Result": "Pass"
     },
     {
         "Test Case": "3",
-        " Expected": " value3",
-        " Actual": " value",
-        " Result": " Fail"
+        "Expected": "value3",
+        "Actual": "value",
+        "Result": "Fail"
     }
 ]
